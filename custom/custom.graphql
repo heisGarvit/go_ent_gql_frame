@@ -1,0 +1,17 @@
+type LoginResponse {
+    token: String
+    user: User
+}
+
+type Mutation {
+    ping: Ping!
+}
+
+type Ping {
+    success: Boolean!
+}
+
+extend type Query {
+    ping: Ping!
+    login(email: String!, password: String!): LoginResponse!
+}

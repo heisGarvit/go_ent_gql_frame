@@ -1,0 +1,324 @@
+
+			scalar DateOnly
+			scalar TimeOnly
+			scalar NullString
+			scalar JSON
+	extend type Query {
+  	CompanyQuery(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [CompanyOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: CompanyWhereInput
+  ): CompanyConnection!
+
+CompanyExport(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [CompanyOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: CompanyWhereInput
+
+	fileType: String!,
+	excelUrl: String,
+  ): String
+
+  	PermissionQuery(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [PermissionOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: PermissionWhereInput
+  ): PermissionConnection!
+
+PermissionExport(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [PermissionOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: PermissionWhereInput
+
+	fileType: String!,
+	excelUrl: String,
+  ): String
+
+  	RoleQuery(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [RoleOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: RoleWhereInput
+  ): RoleConnection!
+
+RoleExport(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [RoleOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: RoleWhereInput
+
+	fileType: String!,
+	excelUrl: String,
+  ): String
+
+  	RolePermissionQuery(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [RolePermissionOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: RolePermissionWhereInput
+  ): RolePermissionConnection!
+
+RolePermissionExport(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [RolePermissionOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: RolePermissionWhereInput
+
+	fileType: String!,
+	excelUrl: String,
+  ): String
+
+  	UserQuery(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [UserOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: UserWhereInput
+  ): UserConnection!
+
+UserExport(
+    """Returns the elements in the list that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the first _n_ elements from the list."""
+    first: Int
+
+    """Returns the elements in the list that come before the specified cursor."""
+    before: Cursor
+
+    """Returns the last _n_ elements from the list."""
+    last: Int
+
+    """
+    Ordering options for Members returned from the connection.
+    """
+    orderBy: [UserOrder!]
+
+    """Filtering options for Users returned from the connection."""
+    where: UserWhereInput
+
+	fileType: String!,
+	excelUrl: String,
+  ): String
+}extend type Mutation {
+	CompanyCreate(input: CreateCompanyInput!): Company!
+	CompanyCreateBulk(inputs: [CreateCompanyInput]!): [Company!]
+	CompanyUpdate(id: ID!, input: UpdateCompanyInput!): Company!
+	CompanyDelete(id: ID!): Company!
+
+	PermissionCreate(input: CreatePermissionInput!): Permission!
+	PermissionCreateBulk(inputs: [CreatePermissionInput]!): [Permission!]
+	PermissionUpdate(id: ID!, input: UpdatePermissionInput!): Permission!
+	PermissionDelete(id: ID!): Permission!
+
+	RoleCreate(input: CreateRoleInput!): Role!
+	RoleCreateBulk(inputs: [CreateRoleInput]!): [Role!]
+	RoleUpdate(id: ID!, input: UpdateRoleInput!): Role!
+	RoleDelete(id: ID!): Role!
+
+	RolePermissionCreate(input: CreateRolePermissionInput!): RolePermission!
+	RolePermissionCreateBulk(inputs: [CreateRolePermissionInput]!): [RolePermission!]
+	RolePermissionUpdate(id: ID!, input: UpdateRolePermissionInput!): RolePermission!
+	RolePermissionDelete(id: ID!): RolePermission!
+
+	UserCreate(input: CreateUserInput!): User!
+	UserCreateBulk(inputs: [CreateUserInput]!): [User!]
+	UserUpdate(id: ID!, input: UpdateUserInput!): User!
+	UserDelete(id: ID!): User!
+}
+		enum CompanyField {
+		  createdAt
+updatedAt
+companyID
+name
+isDisabled
+ownerID
+
+		}
+		
+		enum PermissionField {
+		  createdAt
+updatedAt
+companyID
+name
+description
+read
+write
+patch
+delete
+
+		}
+		
+		enum RoleField {
+		  createdAt
+updatedAt
+companyID
+name
+description
+
+		}
+		
+		enum RolePermissionField {
+		  createdAt
+updatedAt
+companyID
+roleID
+permissionID
+
+		}
+		
+		enum UserField {
+		  createdAt
+updatedAt
+companyID
+name
+email
+mobile
+password
+isDisabled
+dateOfBirth
+dateOfJoin
+timingStart
+employeeID
+roleID
+
+		}
+		
