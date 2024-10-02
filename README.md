@@ -5,9 +5,9 @@
 
 ## Generate DB migrations (Local only)
 ```./migration.sh```
+```./upgrade.sh```
 
-## Apply DB migrations (Local & Prod)
-```./migrate.sh```
+## Apply DB migrations (Prod)
 ```./upgrade.sh```
 
 ## Run the project

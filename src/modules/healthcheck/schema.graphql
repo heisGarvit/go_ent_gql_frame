@@ -1,0 +1,7 @@
+type Ping {
+    success: Boolean!
+}
+
+extend type Query {
+    ping: Ping!
+}

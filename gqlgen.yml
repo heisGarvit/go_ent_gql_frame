@@ -1,47 +1,48 @@
-# schema tells gqlgen where the GraphQL schema is located.
+# models tells gqlgen where the GraphQL models is located.
 schema:
   - ./**/*.graphql
 
 # resolver reports where the resolver implementations go.
 #resolver:
-#  layout: follow-schema
+#  layout: follow-models
 #  filename_template: "gql.gen.go"
 #  filename_template: "z.custom.go"
 
-# gqlgen will search for any type names in the schema in these go packages
+# gqlgen will search for any type names in the models in these go packages
 # if they match it will use them, otherwise it will generate them.
 
-# autobind tells gqngen to search for any type names in the GraphQL schema in the
+# autobind tells gqngen to search for any type names in the GraphQL models in the
 # provided package. If they match it will use them, otherwise it will generate new.
 autobind:
-  - "project/ent"
-  - "project/custom"
+  - "project/src/models/ent"
+  - "project/src/modules/healthcheck"
+  - "project/src/modules/auth"
 
 
 # This section declares type mapping between the GraphQL and Go type systems.
 models:
   # Defines the ID field as Go 'int'.
   ID:
-    model: project/utils/entFields.UUID
+    model: project/src/utils/customfields.UUID
   DateOnly:
-    model: project/utils/entFields.DateOnly
+    model: project/src/utils/customfields.DateOnly
   TimeOnly:
-    model: project/utils/entFields.TimeOnly
+    model: project/src/utils/customfields.TimeOnly
   NullString:
-    model: project/utils/entFields.NullString
+    model: project/src/utils/customfields.NullString
   JSON:
-    model: project/utils/entFields.JSON
+    model: project/src/utils/customfields.JSON
   Node:
     model:
-      - project/ent.Noder
+      - project/src/models/ent.Noder
 
 # Where should any generated models go?
 model:
-  filename: ent/resolvers/models.go
+  filename: src/models/ent/resolvers/models.go
   package: resolvers
 
 
 # Where should the generated server code go?
 exec:
-  filename: ent/resolvers/generated.go
+  filename: src/models/ent/resolvers/generated.go
   package: resolvers
