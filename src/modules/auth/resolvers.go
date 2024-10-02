@@ -1,22 +1,24 @@
-package custom
+package auth
 
 import (
 	"context"
 	"errors"
 	"github.com/google/uuid"
 	"log/slog"
-	"project/ent"
-	"project/ent/user"
-	"project/utils/db"
-	"project/utils/jwt"
+	"project/src/infra/db"
+	"project/src/models/ent"
+	"project/src/models/ent/user"
+	"project/src/utils/jwt"
 )
+
+type AuthGqlResolver struct{}
 
 type LoginResponse struct {
 	Token string
 	User  ent.User
 }
 
-func (r *GqlResolver) Login(ctx context.Context, email string, password string) (*LoginResponse, error) {
+func (r *AuthGqlResolver) Login(ctx context.Context, email string, password string) (*LoginResponse, error) {
 
 	user, err := db.Client.User.Query().Where(
 		user.EmailEQ(email),
@@ -51,7 +53,7 @@ func (r *GqlResolver) Login(ctx context.Context, email string, password string) 
 	return &loginResponse, err
 }
 
-func (r *GqlResolver) RefreshToken(ctx context.Context) (*LoginResponse, error) {
+func (r *AuthGqlResolver) RefreshToken(ctx context.Context) (*LoginResponse, error) {
 
 	userId, _, err := jwt.RefreshTokenValidate(ctx)
 	if err != nil {
