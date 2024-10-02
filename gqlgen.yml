@@ -14,10 +14,10 @@ schema:
 # autobind tells gqngen to search for any type names in the GraphQL models in the
 # provided package. If they match it will use them, otherwise it will generate new.
 autobind:
-  - "project/src/models/ent"
+  - "project/src/models/ent" # do not remove
   - "project/src/modules/healthcheck"
   - "project/src/modules/auth"
-
+  # add your modules above this line
 
 # This section declares type mapping between the GraphQL and Go type systems.
 models:

@@ -5,11 +5,9 @@ import (
 	"project/src/modules/healthcheck"
 )
 
-type Resolver struct {
-	*auth.AuthGqlResolver
-	*healthcheck.Resolver
-}
+// MUST add to gqlgen.yml autobind as well
 
-func init() {
-	(Resolver{}).Ping(nil)
+type Resolver struct {
+	*healthcheck.Resolver
+	*auth.AuthGqlResolver
 }
